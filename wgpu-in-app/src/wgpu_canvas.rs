@@ -41,7 +41,7 @@ impl WgpuCanvas {
 
     fn create_a_example(app_surface: &mut AppSurface, index: i32) -> Box<dyn Example> {
         if index == 0 {
-            Box::new(Boids::new(app_surface))
+            Box::new(GameTest::new(app_surface))
         } else if index == 1 {
             Box::new(MSAALine::new(app_surface))
         } else if index == 2 {

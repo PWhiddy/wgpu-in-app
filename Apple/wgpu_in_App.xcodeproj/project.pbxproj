@@ -321,7 +321,7 @@
 				CODE_SIGN_ENTITLEMENTS = wgpu_phone/wgpu_phone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0;
-				DEVELOPMENT_TEAM = P3HQ9GDFCW;
+				DEVELOPMENT_TEAM = D364M78943;
 				INFOPLIST_FILE = wgpu_phone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 12;
@@ -336,7 +336,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lijinlei.zixi.wgpu-test";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pwhiddy.wgpu-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -356,7 +356,7 @@
 				CODE_SIGN_ENTITLEMENTS = wgpu_phone/wgpu_phone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0;
-				DEVELOPMENT_TEAM = P3HQ9GDFCW;
+				DEVELOPMENT_TEAM = D364M78943;
 				INFOPLIST_FILE = wgpu_phone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 12;
@@ -372,7 +372,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lijinlei.zixi.wgpu-test";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pwhiddy.wgpu-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

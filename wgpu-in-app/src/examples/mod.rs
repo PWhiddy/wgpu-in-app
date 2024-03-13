@@ -18,6 +18,9 @@ impl Example for Empty {
 mod boids;
 pub use boids::Boids;
 
+mod game_test;
+pub use game_test::GameTest;
+
 mod msaa_line;
 pub use msaa_line::MSAALine;
 

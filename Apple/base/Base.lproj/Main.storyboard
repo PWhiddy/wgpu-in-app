@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4864" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,48 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHv-L9-Ngy" customClass="MetalView" customModule="wgpu_phone" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="172" width="414" height="414"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="bHv-L9-Ngy" secondAttribute="height" multiplier="1:1" id="9dI-QF-8cP"/>
-                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wgpu in iOS App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOo-xX-hpl">
-                                <rect key="frame" x="130" y="48" width="154" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="FEd-wX-ds2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NML-RE-Kyu">
-                                <rect key="frame" x="0.0" y="116" width="414" height="32"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <segments>
-                                    <segment title="boids"/>
-                                    <segment title="MSAA line"/>
-                                    <segment title="HDR ASTC"/>
-                                    <segment title="water"/>
-                                    <segment title="shadow"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeExampleWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="rfl-8d-vG6"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
-                            <constraint firstItem="SOo-xX-hpl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1hw-HX-Fyb"/>
-                            <constraint firstItem="NML-RE-Kyu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5gs-kM-69D"/>
-                            <constraint firstItem="SOo-xX-hpl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BDm-IJ-19Q"/>
+                            <constraint firstItem="bHv-L9-Ngy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7bm-MT-Pxe"/>
                             <constraint firstItem="bHv-L9-Ngy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BFZ-6E-DiP"/>
-                            <constraint firstItem="NML-RE-Kyu" firstAttribute="top" secondItem="SOo-xX-hpl" secondAttribute="bottom" constant="24" id="C2l-nU-EsR"/>
-                            <constraint firstItem="bHv-L9-Ngy" firstAttribute="top" secondItem="SOo-xX-hpl" secondAttribute="bottom" constant="80" id="UB1-Nj-yaa"/>
-                            <constraint firstItem="NML-RE-Kyu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="d7n-9F-YiU"/>
+                            <constraint firstItem="bHv-L9-Ngy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TcQ-DC-YZX"/>
+                            <constraint firstItem="bHv-L9-Ngy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UfR-1B-1vY"/>
                             <constraint firstItem="bHv-L9-Ngy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fUE-eB-pZ9"/>
-                            <constraint firstItem="NML-RE-Kyu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kwY-x6-cW2"/>
                         </constraints>
                     </view>
                     <connections>
@@ -72,9 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

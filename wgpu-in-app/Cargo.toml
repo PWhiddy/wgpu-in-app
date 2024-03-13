@@ -17,6 +17,10 @@ vulkan-portability = ["wgpu/vulkan-portability"]
 path = "../app-surface"
 package = "app-surface"
 
+[dependencies.game]
+path = "../../wgpu-game"
+package = "game"
+
 [dependencies]
 bytemuck.workspace = true
 glam.workspace = true
