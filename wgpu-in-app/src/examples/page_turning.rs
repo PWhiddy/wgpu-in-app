@@ -106,7 +106,7 @@ impl PageTurning {
         //  NDC 坐标是 （-1， -1）在左下角
         let target_pos = Position::new(-5.8, 2.5);
 
-        let maximum_frames = 60;
+        let maximum_frames = 120;
         let instance = PageTurning {
             paper: paper.clone(),
             page_rect,

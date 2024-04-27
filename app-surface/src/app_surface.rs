@@ -154,7 +154,7 @@ impl AppSurface {
             view: Some(view),
             is_offscreen_canvas,
             scale_factor,
-            maximum_frames: 60,
+            maximum_frames: 120,
             sdq: crate::SurfaceDeviceQueue {
                 surface,
                 config,
