@@ -119,6 +119,7 @@ impl HDRImageView {
                 module: &shader_module,
                 entry_point: "vs_main",
                 buffers: &pipeline_vertex_buffers,
+                compilation_options: wgpu::PipelineCompilationOptions::default()
             },
             fragment: Some(wgpu::FragmentState {
                 module: &shader_module,
@@ -128,6 +129,7 @@ impl HDRImageView {
                     blend: None,
                     write_mask: wgpu::ColorWrites::ALL,
                 })],
+                compilation_options: wgpu::PipelineCompilationOptions::default()
             }),
             primitive: wgpu::PrimitiveState {
                 topology: PrimitiveTopology::TriangleList,

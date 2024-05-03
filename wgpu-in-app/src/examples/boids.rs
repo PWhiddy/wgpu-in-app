@@ -145,11 +145,13 @@ impl Boids {
                         attributes: &wgpu::vertex_attr_array![2 => Float32x2],
                     },
                 ],
+                compilation_options: wgpu::PipelineCompilationOptions::default()
             },
             fragment: Some(wgpu::FragmentState {
                 module: &draw_shader,
                 entry_point: "main_fs",
                 targets: &[Some(config.format.into())],
+                compilation_options: wgpu::PipelineCompilationOptions::default()
             }),
             primitive: wgpu::PrimitiveState::default(),
             depth_stencil: None,
@@ -163,6 +165,7 @@ impl Boids {
             layout: Some(&compute_pipeline_layout),
             module: &compute_shader,
             entry_point: "main",
+            compilation_options: wgpu::PipelineCompilationOptions::default()
         });
 
         // buffer for the three 2d triangle vertices of each instance

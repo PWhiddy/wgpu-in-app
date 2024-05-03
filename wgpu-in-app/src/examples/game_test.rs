@@ -20,7 +20,7 @@ impl GameTest {
         let config = &app_surface.config;
         let device = &app_surface.device;
 
-        let camera = Camera::new(0.002);
+        let camera = Camera::new(0.0018);
         let control_state = ControlState::new();
     
         let state = demos::link_tearing_mobile();
@@ -56,6 +56,7 @@ impl Example for GameTest {
         self.sim.step(true, false, device, queue);
         self.sim.step(true, false, device, queue);
         self.sim.step(true, false, device, queue);
+
         self.renderer.render(device, queue, &self.sim, &self.camera, &view, options);
         frame.present();
     }

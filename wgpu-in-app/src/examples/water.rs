@@ -347,6 +347,7 @@ impl Water {
                     step_mode: wgpu::VertexStepMode::Vertex,
                     attributes: &wgpu::vertex_attr_array![0 => Sint16x2, 1 => Sint8x4],
                 }],
+                compilation_options: wgpu::PipelineCompilationOptions::default()
             },
             // Fragment shader and output targets
             fragment: Some(wgpu::FragmentState {
@@ -370,6 +371,7 @@ impl Water {
                     }),
                     write_mask: wgpu::ColorWrites::ALL,
                 })],
+                compilation_options: wgpu::PipelineCompilationOptions::default()
             }),
             // How the triangles will be rasterized. This is more important
             // for the terrain because of the beneath-the water shot.
@@ -411,11 +413,13 @@ impl Water {
                     step_mode: wgpu::VertexStepMode::Vertex,
                     attributes: &wgpu::vertex_attr_array![0 => Float32x3, 1 => Float32x3, 2 => Unorm8x4],
                 }],
+                compilation_options: wgpu::PipelineCompilationOptions::default()
             },
             fragment: Some(wgpu::FragmentState {
                 module: &terrain_module,
                 entry_point: "fs_main",
                 targets: &[Some(config.format.into())],
+                compilation_options: wgpu::PipelineCompilationOptions::default()
             }),
             primitive: wgpu::PrimitiveState {
                 front_face: wgpu::FrontFace::Ccw,

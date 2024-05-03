@@ -500,6 +500,7 @@ impl Shadow {
                     module: &shader,
                     entry_point: "vs_bake",
                     buffers: &[vb_desc.clone()],
+                    compilation_options: wgpu::PipelineCompilationOptions::default()
                 },
                 fragment: None,
                 primitive: wgpu::PrimitiveState {
@@ -628,11 +629,13 @@ impl Shadow {
                     module: &shader,
                     entry_point: "vs_main",
                     buffers: &[vb_desc],
+                    compilation_options: wgpu::PipelineCompilationOptions::default()
                 },
                 fragment: Some(wgpu::FragmentState {
                     module: &shader,
                     entry_point: "fs_main",
                     targets: &[Some(config.format.into())],
+                    compilation_options: wgpu::PipelineCompilationOptions::default()
                 }),
                 primitive: wgpu::PrimitiveState {
                     front_face: wgpu::FrontFace::Ccw,
