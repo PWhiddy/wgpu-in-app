@@ -22,8 +22,8 @@ impl GameTest {
 
         let camera = Camera::new(0.0018);
         let control_state = ControlState::new();
-    
-        let state = demos::link_tearing_mobile();
+
+        let state = demos::plant_survival_resizable(512, 1024+96);
         let sim = Sim::new(device, state);
     
         let renderer = SimRenderer::new(device, config, &sim);
@@ -46,7 +46,7 @@ impl Example for GameTest {
         let (frame, view) = app_surface.get_current_frame_view(None);
         let options = RenderOptions {
             render_repulse_field: self.render_field,
-            render_state_fields: 0, //u32::MAX,
+            render_state_fields: 8, //u32::MAX,
             render_entities: u32::MAX,
             render_links: true,
             debug_mode: false,
