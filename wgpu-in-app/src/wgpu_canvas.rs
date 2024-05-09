@@ -1,6 +1,6 @@
 use crate::examples::*;
 use app_surface::{AppSurface, SurfaceFrame};
-
+pub use app_surface::Touch;
 pub struct WgpuCanvas {
     pub app_surface: AppSurface,
     example: Box<dyn Example>,
@@ -35,6 +35,10 @@ impl WgpuCanvas {
         self.app_surface.resize_surface();
     }
 
+    pub fn touch(&mut self, touch: Touch) {
+        self.example.touch(touch)
+    }
+
     pub fn change_example(&mut self, index: i32) {
         self.example = Self::create_a_example(&mut self.app_surface, index);
     }
@@ -42,16 +46,8 @@ impl WgpuCanvas {
     fn create_a_example(app_surface: &mut AppSurface, index: i32) -> Box<dyn Example> {
         if index == 0 {
             Box::new(GameTest::new(app_surface))
-        } else if index == 1 {
-            Box::new(MSAALine::new(app_surface))
-        } else if index == 2 {
-            Box::new(Cube::new(app_surface))
-        } else if index == 3 {
-            Box::new(Water::new(app_surface))
-        } else if index == 4 {
-            Box::new(Shadow::new(app_surface))
         } else {
-            Box::new(HDRImageView::new(app_surface))
+            Box::new(MSAALine::new(app_surface))
         }
     }
 }

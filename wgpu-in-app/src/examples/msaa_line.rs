@@ -235,6 +235,10 @@ impl Example for MSAALine {
         );
     }
 
+    fn touch(&mut self, _touch: app_surface::Touch) {
+        
+    }
+
     fn enter_frame(&mut self, app_surface: &AppSurface) {
         let device = &app_surface.device;
         let queue = &app_surface.queue;

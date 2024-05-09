@@ -3,7 +3,7 @@ use app_surface::AppSurface;
 pub trait Example {
     fn resize(&mut self, _app_surface: &AppSurface) {}
     fn enter_frame(&mut self, app_surface: &AppSurface);
-    fn touch(&mut self, _touch: app_surface::Touch) {}
+    fn touch(&mut self, _touch: app_surface::Touch);
 }
 
 pub struct Empty;
@@ -14,26 +14,11 @@ impl Empty {
 }
 impl Example for Empty {
     fn enter_frame(&mut self, _app_surface: &AppSurface) {}
+    fn touch(&mut self, _touch: app_surface::Touch) {}
 }
-
-mod boids;
-pub use boids::Boids;
-
-mod game_test;
-pub use game_test::GameTest;
 
 mod msaa_line;
 pub use msaa_line::MSAALine;
 
-mod cube;
-pub use cube::Cube;
-
-mod point_gen;
-mod water;
-pub use water::Water;
-
-mod shadow;
-pub use shadow::Shadow;
-
-mod hdr_image_view;
-pub use hdr_image_view::HDRImageView;
+mod game_test;
+pub use game_test::GameTest;

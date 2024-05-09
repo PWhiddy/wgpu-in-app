@@ -40,7 +40,7 @@ impl GameTest {
 
 impl Example for GameTest {
     fn enter_frame(&mut self, app_surface: &AppSurface) {
-        //log::info!("render triggered!");
+        log::info!("render triggered!");
         let device = &app_surface.device;
         let queue = &app_surface.queue;
         let (frame, view) = app_surface.get_current_frame_view(None);
@@ -63,6 +63,7 @@ impl Example for GameTest {
 
     fn touch(&mut self, touch: app_surface::Touch) {
         //log::info!("touch triggered!");
+        println!("touch!");
         self.control_state.left_mouse_down();
         self.render_field = true;
         //self.sim.step()
