@@ -22,8 +22,9 @@ impl GameTest {
 
         let camera = Camera::new(0.0018);
         let control_state = ControlState::new();
-
-        let state = demos::plant_survival_resizable(512, 1024+96);
+        let x = 512; // approximate size for iphone 11
+        let y = 1024 + 96;
+        let state = demos::mega_pods_and_queens(x, y); // demos::plant_survival_resizable(x, y); //
         let sim = Sim::new(device, state);
     
         let renderer = SimRenderer::new(device, config, &sim);
@@ -40,13 +41,13 @@ impl GameTest {
 
 impl Example for GameTest {
     fn enter_frame(&mut self, app_surface: &AppSurface) {
-        log::info!("render triggered!");
+        // log::info!("render triggered!");
         let device = &app_surface.device;
         let queue = &app_surface.queue;
         let (frame, view) = app_surface.get_current_frame_view(None);
         let options = RenderOptions {
             render_repulse_field: self.render_field,
-            render_state_fields: 8, //u32::MAX,
+            render_state_fields: 7, //u32::MAX,
             render_entities: u32::MAX,
             render_links: true,
             debug_mode: false,
@@ -56,8 +57,16 @@ impl Example for GameTest {
         self.sim.step(true, false, device, queue);
         self.sim.step(true, false, device, queue);
         self.sim.step(true, false, device, queue);
-
-        self.renderer.render(device, queue, &self.sim, &self.camera, &view, options);
+        let mut encoder =
+            device.create_command_encoder(
+                &wgpu::CommandEncoderDescriptor {
+                    label: Some(
+                        "sim render command encoder",
+                    ),
+                },
+            );
+        self.renderer.render(&mut encoder, device, queue, &self.sim, &self.camera, &view, options);
+        queue.submit([encoder.finish()]);
         frame.present();
     }
 
