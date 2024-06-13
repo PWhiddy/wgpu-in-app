@@ -46,6 +46,7 @@ impl Example for GameTest {
         let queue = &app_surface.queue;
         let (frame, view) = app_surface.get_current_frame_view(None);
         let options = RenderOptions {
+            physics_delta_t_remainder: 0.0,
             render_repulse_field: self.render_field,
             render_state_fields: 7, //u32::MAX,
             render_entities: u32::MAX,
