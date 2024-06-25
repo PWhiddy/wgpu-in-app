@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		889720FD2BE4660700C43F39 /* libwgpu_in_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 889720FC2BE4660700C43F39 /* libwgpu_in_app.a */; };
+		8867C3672C070F6200F05F54 /* libwgpu_in_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8867C3662C070F6200F05F54 /* libwgpu_in_app.a */; };
 		AD4B1FED26EB1B90008A6AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4B1FEC26EB1B90008A6AEE /* AppDelegate.swift */; };
 		AD4B1FF126EB1B90008A6AEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4B1FF026EB1B90008A6AEE /* ViewController.swift */; };
 		AD4B1FF426EB1B90008A6AEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4B1FF226EB1B90008A6AEE /* Main.storyboard */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		889720FC2BE4660700C43F39 /* libwgpu_in_app.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwgpu_in_app.a; sourceTree = "<group>"; };
+		8867C3662C070F6200F05F54 /* libwgpu_in_app.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwgpu_in_app.a; path = libs/release/libwgpu_in_app.a; sourceTree = "<group>"; };
 		AD20D48A2863001E00E2C98C /* wgpu_phone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wgpu_phone.entitlements; sourceTree = "<group>"; };
 		AD37233828E17FAF001EF275 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		AD4B1FE926EB1B90008A6AEE /* wgpu_phone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wgpu_phone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				889720FD2BE4660700C43F39 /* libwgpu_in_app.a in Frameworks */,
+				8867C3672C070F6200F05F54 /* libwgpu_in_app.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				AD37233828E17FAF001EF275 /* UIKit.framework */,
-				889720FC2BE4660700C43F39 /* libwgpu_in_app.a */,
+				8867C3662C070F6200F05F54 /* libwgpu_in_app.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

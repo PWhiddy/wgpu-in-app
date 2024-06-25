@@ -1,5 +1,5 @@
 use crate::wgpu_canvas::WgpuCanvas;
-use app_surface::{AppSurface, IOSViewObj};
+use app_surface::{AppSurface, IOSViewObj, Touch, TouchPhase};
 
 #[no_mangle]
 pub fn create_wgpu_canvas(ios_obj: IOSViewObj) -> *mut libc::c_void {
@@ -29,6 +29,27 @@ pub fn enter_frame(obj: *mut libc::c_void) {
     // 获取到指针指代的 Rust 对象的可变借用
     let obj = unsafe { &mut *(obj as *mut WgpuCanvas) };
     obj.enter_frame();
+}
+
+#[no_mangle]
+pub fn touch(obj: *mut libc::c_void, x: f32, y: f32, phase: i32) {
+    // 获取到指针指代的 Rust 对象的可变借用
+    let obj = unsafe { &mut *(obj as *mut WgpuCanvas) };
+    let tc = Touch::new(glam::Vec2::new(x, y), match phase {
+        0 => {
+            TouchPhase::Started
+        },
+        1 => {
+            TouchPhase::Moved
+        },
+        2 => {
+            TouchPhase::Ended
+        },
+        _ => {
+            TouchPhase::Cancelled
+        },
+    });
+    obj.touch(tc);
 }
 
 #[no_mangle]

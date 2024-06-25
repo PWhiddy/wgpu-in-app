@@ -6,7 +6,7 @@ pub struct StylusAngle<T> {
 }
 
 #[repr(C)]
-#[derive(Copy, Clone, Debug)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq)]
 pub enum TouchPhase {
     Started,
     Moved, // Or pintch changed
@@ -41,7 +41,7 @@ impl Touch {
         Self::new(position, TouchPhase::Ended)
     }
 
-    fn new(position: glam::Vec2, phase: TouchPhase) -> Self {
+    pub fn new(position: glam::Vec2, phase: TouchPhase) -> Self {
         Touch {
             position,
             phase,

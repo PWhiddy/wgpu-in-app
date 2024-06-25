@@ -59,6 +59,61 @@ class ViewController: UIViewController {
         }
         change_example(canvas, Int32(index))
     }
+    
+    @objc func touchE(x: Float32, y: Float32, phase: Int32) {
+        guard let canvas = self.wgpuCanvas else {
+            return
+        }
+        // call rust
+        touch(canvas, x, y, phase);
+    }
+    
+    // Override touch event methods
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        handleTouch(touches)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        handleTouch(touches)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        handleTouch(touches)
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        handleTouch(touches)
+    }
+    
+    
+    // Define your handleTouch method
+    func handleTouch(_ touches: Set<UITouch>) {
+        // Implement your touch handling logic here
+        for touch in touches {
+            let location = touch.location(in: self.view)
+            //print("Touch at location: \(location)")
+            // You can add more logic here as needed
+            var phase = 0;
+            if touch.phase == UITouch.Phase.began {
+                phase = 0;
+            }
+            if touch.phase == UITouch.Phase.moved {
+                phase = 1;
+            }
+            if touch.phase == UITouch.Phase.ended {
+                phase = 2;
+            }
+            if touch.phase == UITouch.Phase.cancelled {
+                phase = 3;
+            }
+            touchE(x: Float(location.x), y: Float(location.y), phase: Int32(phase));
+        }
+    }
+    
 
 }
 
