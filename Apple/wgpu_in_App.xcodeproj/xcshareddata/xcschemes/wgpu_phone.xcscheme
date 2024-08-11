@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AD4B1FE826EB1B90008A6AEE"
-               BuildableName = "wgpu_phone.app"
-               BlueprintName = "wgpu_phone"
+               BuildableName = "Mote.app"
+               BlueprintName = "Mote"
                ReferencedContainer = "container:wgpu_in_App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AD4B1FE826EB1B90008A6AEE"
-            BuildableName = "wgpu_phone.app"
-            BlueprintName = "wgpu_phone"
+            BuildableName = "Mote.app"
+            BlueprintName = "Mote"
             ReferencedContainer = "container:wgpu_in_App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -89,8 +89,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AD4B1FE826EB1B90008A6AEE"
-            BuildableName = "wgpu_phone.app"
-            BlueprintName = "wgpu_phone"
+            BuildableName = "Mote.app"
+            BlueprintName = "Mote"
             ReferencedContainer = "container:wgpu_in_App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

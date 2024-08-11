@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8867C3672C070F6200F05F54 /* libwgpu_in_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8867C3662C070F6200F05F54 /* libwgpu_in_app.a */; };
+		88B05C6C2C66BA2F004D3CE9 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B05C6B2C66BA2F004D3CE9 /* CoreAudio.framework */; };
+		88B05C6E2C66BA79004D3CE9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B05C6D2C66BA79004D3CE9 /* AudioToolbox.framework */; };
 		AD4B1FED26EB1B90008A6AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4B1FEC26EB1B90008A6AEE /* AppDelegate.swift */; };
 		AD4B1FF126EB1B90008A6AEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4B1FF026EB1B90008A6AEE /* ViewController.swift */; };
 		AD4B1FF426EB1B90008A6AEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4B1FF226EB1B90008A6AEE /* Main.storyboard */; };
@@ -19,9 +21,13 @@
 
 /* Begin PBXFileReference section */
 		8867C3662C070F6200F05F54 /* libwgpu_in_app.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwgpu_in_app.a; path = libs/release/libwgpu_in_app.a; sourceTree = "<group>"; };
+		88B05C682C607107004D3CE9 /* wgpu_phone copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "wgpu_phone copy-Info.plist"; path = "/Users/peterwhidden/Documents/wgpu-in-app/Apple/wgpu_phone copy-Info.plist"; sourceTree = "<absolute>"; };
+		88B05C692C66BA28004D3CE9 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		88B05C6B2C66BA2F004D3CE9 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		88B05C6D2C66BA79004D3CE9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AD20D48A2863001E00E2C98C /* wgpu_phone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wgpu_phone.entitlements; sourceTree = "<group>"; };
 		AD37233828E17FAF001EF275 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		AD4B1FE926EB1B90008A6AEE /* wgpu_phone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wgpu_phone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD4B1FE926EB1B90008A6AEE /* Mote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4B1FEC26EB1B90008A6AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD4B1FF026EB1B90008A6AEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD4B1FF326EB1B90008A6AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B05C6E2C66BA79004D3CE9 /* AudioToolbox.framework in Frameworks */,
+				88B05C6C2C66BA2F004D3CE9 /* CoreAudio.framework in Frameworks */,
 				8867C3672C070F6200F05F54 /* libwgpu_in_app.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,13 +76,14 @@
 				AD4B1FEB26EB1B90008A6AEE /* wgpu_phone */,
 				AD4B1FEA26EB1B90008A6AEE /* Products */,
 				ADA4699326EB3079008B1C7B /* Frameworks */,
+				88B05C682C607107004D3CE9 /* wgpu_phone copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		AD4B1FEA26EB1B90008A6AEE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AD4B1FE926EB1B90008A6AEE /* wgpu_phone.app */,
+				AD4B1FE926EB1B90008A6AEE /* Mote.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +101,9 @@
 		ADA4699326EB3079008B1C7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88B05C6D2C66BA79004D3CE9 /* AudioToolbox.framework */,
+				88B05C6B2C66BA2F004D3CE9 /* CoreAudio.framework */,
+				88B05C692C66BA28004D3CE9 /* AudioUnit.framework */,
 				AD37233828E17FAF001EF275 /* UIKit.framework */,
 				8867C3662C070F6200F05F54 /* libwgpu_in_app.a */,
 			);
@@ -101,9 +113,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AD4B1FE826EB1B90008A6AEE /* wgpu_phone */ = {
+		AD4B1FE826EB1B90008A6AEE /* Mote */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD4B1FFD26EB1B91008A6AEE /* Build configuration list for PBXNativeTarget "wgpu_phone" */;
+			buildConfigurationList = AD4B1FFD26EB1B91008A6AEE /* Build configuration list for PBXNativeTarget "Mote" */;
 			buildPhases = (
 				AD4B1FE526EB1B90008A6AEE /* Sources */,
 				AD4B1FE626EB1B90008A6AEE /* Frameworks */,
@@ -113,9 +125,9 @@
 			);
 			dependencies = (
 			);
-			name = wgpu_phone;
+			name = Mote;
 			productName = wgpu_test;
-			productReference = AD4B1FE926EB1B90008A6AEE /* wgpu_phone.app */;
+			productReference = AD4B1FE926EB1B90008A6AEE /* Mote.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -146,7 +158,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AD4B1FE826EB1B90008A6AEE /* wgpu_phone */,
+				AD4B1FE826EB1B90008A6AEE /* Mote */,
 			);
 		};
 /* End PBXProject section */
@@ -400,7 +412,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD4B1FFD26EB1B91008A6AEE /* Build configuration list for PBXNativeTarget "wgpu_phone" */ = {
+		AD4B1FFD26EB1B91008A6AEE /* Build configuration list for PBXNativeTarget "Mote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD4B1FFE26EB1B91008A6AEE /* Debug */,

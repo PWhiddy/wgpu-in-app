@@ -5,13 +5,19 @@ use app_surface::{AppSurface, SurfaceFrame, TouchPhase};
 use glam::Vec2;
 
 extern crate game;
-use game::game::{sim::Sim, camera::Camera, control_state::ControlState, sim_renderer::{SimRenderer, RenderOptions}, demos};
+use game::game::{sim::Sim, camera::Camera, 
+    control_state::ControlState,
+    sim_audio::SimAudio,
+    sim_renderer::{SimRenderer, RenderOptions}, 
+    demos, shared_constants,
+};
 
 pub struct GameTest {
     camera: Camera,
     control_state: ControlState,
     sim: Sim,
     renderer: SimRenderer,
+    audio: SimAudio,
     render_field: bool,
     dims: Vec2,
 }
@@ -22,20 +28,23 @@ impl GameTest {
         let device = &app_surface.device;
         let (frame, view) = app_surface.get_current_frame_view(None);
 
-        let camera = Camera::new(0.0018);
+        let mut camera = Camera::new(0.0018);
+        //camera.zoom(1.2);
         let control_state = ControlState::new();
         let x = 512; // approximate size for iphone 11
         let y = 1024 + 96;
-        let state = demos::mega_pods_and_queens_turbo(x, y); //demos::mega_pods_and_queens(x, y); // demos::plant_survival_resizable(x, y); //
+        let state = demos::fungus_v1(x, y);  //demos::mega_pods_and_queens_turbo(x, y); 
+          //demos::mega_pods_and_queens(x, y); // demos::plant_survival_resizable(x, y); //
         let sim = Sim::new(device, state);
-    
         let renderer = SimRenderer::new(device, config, &sim);
+        let audio = SimAudio::new();
         
         Self {
             camera,
             control_state,
             sim,
             renderer,
+            audio,
             render_field: false,
             dims: Vec2 { x: frame.texture.width() as f32, y: frame.texture.height() as f32 },
         }
@@ -51,7 +60,7 @@ impl Example for GameTest {
         let options = RenderOptions {
             physics_delta_t_remainder: 0.0,
             render_repulse_field: self.render_field,
-            render_state_fields: 7, //u32::MAX,
+            render_state_fields: 56,//7, //u32::MAX,
             render_entities: u32::MAX,
             render_links: true,
             debug_mode: false,
@@ -73,7 +82,22 @@ impl Example for GameTest {
         );
 
         self.sim.step(true, false, device, queue);
-        self.sim.step(true, false, device, queue);
+ 
+        let wbr = self.sim.get_latest_sim_gpu_write_back_result();
+        let (short_sound_events, other_events) = wbr.step_events
+            .into_iter()
+            .take(wbr.step_event_count as usize)
+            .fold((Vec::new(), Vec::new()), |(mut v1, mut v2), item| {
+                match item.event_type {
+                    shared_constants::EVENT_SHORT_SOUND_TRIGGER => v1.push(item),
+                    _ => v2.push(item),
+                }
+                (v1, v2)
+            });
+        
+        self.audio.play(short_sound_events);
+
+        //self.sim.step(true, false, device, queue);
         //self.sim.step(true, false, device, queue);
         let mut encoder =
             device.create_command_encoder(
