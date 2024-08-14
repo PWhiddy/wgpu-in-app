@@ -7,7 +7,7 @@ use glam::Vec2;
 extern crate game;
 use game::game::{sim::Sim, camera::Camera, 
     control_state::ControlState,
-    sim_audio::SimAudio,
+    sim_audio::{SimAudio, SoundEventsMessage},
     sim_renderer::{SimRenderer, RenderOptions}, 
     demos, shared_constants,
 };
@@ -95,7 +95,12 @@ impl Example for GameTest {
                 (v1, v2)
             });
         
-        self.audio.play(short_sound_events);
+        self.audio.queue_events(
+            SoundEventsMessage {
+                events: short_sound_events,
+                time_interval: 0.016,
+            }
+        );
 
         //self.sim.step(true, false, device, queue);
         //self.sim.step(true, false, device, queue);
