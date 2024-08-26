@@ -18,7 +18,6 @@ pub struct GameTest {
     sim: Sim,
     renderer: SimRenderer,
     audio: SimAudio,
-    render_field: bool,
     dims: Vec2,
 }
 
@@ -28,13 +27,13 @@ impl GameTest {
         let device = &app_surface.device;
         let (frame, view) = app_surface.get_current_frame_view(None);
 
-        let mut camera = Camera::new(0.0018);
+        let camera = Camera::new(0.0018, 0.125, 0.004);
         //camera.zoom(1.2);
-        let control_state = ControlState::new();
         let x = 512; // approximate size for iphone 11
         let y = 1024 + 96;
-        let state = demos::fungus_v1(x, y);  //demos::mega_pods_and_queens_turbo(x, y); 
+        let state = demos::fungus_v2(x, y);  //demos::mega_pods_and_queens_turbo(x, y); 
           //demos::mega_pods_and_queens(x, y); // demos::plant_survival_resizable(x, y); //
+        let control_state = ControlState::from_params(state.params);
         let sim = Sim::new(device, state);
         let renderer = SimRenderer::new(device, config, &sim);
         let audio = SimAudio::new();
@@ -45,7 +44,6 @@ impl GameTest {
             sim,
             renderer,
             audio,
-            render_field: false,
             dims: Vec2 { x: frame.texture.width() as f32, y: frame.texture.height() as f32 },
         }
     }
@@ -59,7 +57,6 @@ impl Example for GameTest {
         let (frame, view) = app_surface.get_current_frame_view(None);
         let options = RenderOptions {
             physics_delta_t_remainder: 0.0,
-            render_repulse_field: self.render_field,
             render_state_fields: 56,//7, //u32::MAX,
             render_entities: u32::MAX,
             render_links: true,
