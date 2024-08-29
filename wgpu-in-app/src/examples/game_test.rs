@@ -65,20 +65,12 @@ impl Example for GameTest {
             window_dimensions: Vec2{ x: frame.texture.width() as f32, y: frame.texture.height() as f32 },
         };
 
-        self.sim.set_player_mouse(
-            self.control_state.mouse_x
-                / self.camera.scale
-                + self.camera.position.x,
-            self.control_state.mouse_y
-                / self.camera.scale
-                + self.camera.position.y,
-        );
+        self.control_state.update_current_sim_params(&self.camera);
+        self.sim.set_sim_params(self.control_state.current_sim_params);
 
-        self.sim.set_player_control_modes(
-            self.control_state.control_modes,
-        );
+        self.sim.step(false, device, queue);
 
-        self.sim.step(true, false, device, queue);
+        self.control_state.current_sim_params = self.sim.get_sim_params_copy();
  
         let wbr = self.sim.get_latest_sim_gpu_write_back_result();
         let (short_sound_events, other_events) = wbr.step_events
