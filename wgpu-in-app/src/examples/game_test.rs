@@ -35,7 +35,13 @@ impl GameTest {
           //demos::mega_pods_and_queens(x, y); // demos::plant_survival_resizable(x, y); //
         let control_state = ControlState::from_params(state.params);
         let sim = Sim::new(device, state);
-        let renderer = SimRenderer::new(device, config, &sim);
+        let renderer = SimRenderer::new(
+            device,
+            config.format,
+            config.width,
+            config.height,
+            &sim
+        );
         let audio = SimAudio::new();
         
         Self {
