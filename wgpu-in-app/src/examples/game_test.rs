@@ -31,7 +31,7 @@ impl GameTest {
         //camera.zoom(1.2);
         let x = 512; // approximate size for iphone 11
         let y = 1024 + 96;
-        let state = demos::fungus_v2(x, y);  //demos::mega_pods_and_queens_turbo(x, y); 
+        let state = demos::membranes_v1(x, y);  //demos::mega_pods_and_queens_turbo(x, y); 
           //demos::mega_pods_and_queens(x, y); // demos::plant_survival_resizable(x, y); //
         let control_state = ControlState::from_params(state.params);
         let sim = Sim::new(device, state);

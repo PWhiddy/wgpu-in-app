@@ -6,12 +6,12 @@ default-members = ["wgpu-in-app"]
 [workspace.dependencies]
 bytemuck = { version = "1.14", features = ["derive"] }
 cfg-if = "1.0"
-glam = "0.28"
+glam = "0.29"
 log = "0.4"
 noise = { version = "0.9", default-features = false }
 pollster = "0.3"
 rand = "0.8"
-wgpu = "0.20"
+wgpu = "0.20.1"
 # wgpu = { git = "https://github.com/gfx-rs/wgpu", rev = "445fa6019b47079c9d336881dbee1c3be3ed4c38" }
 # wgpu = { git = "https://github.com/jinleili/wgpu", branch="visionOS" }
 async-executor = "1.6"
