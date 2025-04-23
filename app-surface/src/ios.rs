@@ -41,7 +41,7 @@ impl AppSurface {
             (s.size.height as f32 * scale_factor) as u32,
         );
         let backends = wgpu::Backends::METAL;
-        let instance = wgpu::Instance::new(wgpu::InstanceDescriptor {
+        let instance = wgpu::Instance::new(&wgpu::InstanceDescriptor {
             backends,
             ..Default::default()
         });

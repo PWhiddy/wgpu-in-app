@@ -152,7 +152,7 @@ impl MSAALine {
             layout: Some(pipeline_layout),
             vertex: wgpu::VertexState {
                 module: shader,
-                entry_point: "vs_main",
+                entry_point: Some("vs_main"),
                 buffers: &[wgpu::VertexBufferLayout {
                     array_stride: std::mem::size_of::<Vertex>() as wgpu::BufferAddress,
                     step_mode: wgpu::VertexStepMode::Vertex,
@@ -162,7 +162,7 @@ impl MSAALine {
             },
             fragment: Some(wgpu::FragmentState {
                 module: shader,
-                entry_point: "fs_main",
+                entry_point: Some("fs_main"),
                 targets: &[Some(config.format.add_srgb_suffix().into())],
                 compilation_options: wgpu::PipelineCompilationOptions::default()
             }),
@@ -177,6 +177,7 @@ impl MSAALine {
                 ..Default::default()
             },
             multiview: None,
+            cache: None,
         });
         let mut encoder =
             device.create_render_bundle_encoder(&wgpu::RenderBundleEncoderDescriptor {

@@ -74,8 +74,8 @@ impl AppSurface {
         } else {
             wgpu::Backends::PRIMARY
         };
-        let backends = wgpu::util::backend_bits_from_env().unwrap_or(default_backends);
-        let instance = wgpu::Instance::new(wgpu::InstanceDescriptor {
+        let backends = default_backends;
+        let instance = wgpu::Instance::new(&wgpu::InstanceDescriptor {
             backends,
             ..Default::default()
         });

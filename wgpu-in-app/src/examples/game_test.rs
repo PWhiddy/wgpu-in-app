@@ -63,7 +63,7 @@ impl Example for GameTest {
         let (frame, view) = app_surface.get_current_frame_view(None);
         let options = RenderOptions {
             physics_delta_t_remainder: 0.0,
-            render_state_fields: 56,//7, //u32::MAX,
+            render_state_fields: 0,//104,//40,//7, //u32::MAX,
             render_entities: u32::MAX,
             render_links: true,
             debug_mode: false,
@@ -94,6 +94,7 @@ impl Example for GameTest {
             SoundEventsMessage {
                 events: short_sound_events,
                 time_interval: 0.016,
+                main_volume: None,
             }
         );
 
