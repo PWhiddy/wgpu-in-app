@@ -29,7 +29,7 @@ impl GameTest {
 
         let camera = Camera::new(0.0018, 0.125, 0.004);
         //camera.zoom(1.2);
-        let x = 512; // approximate size for iphone 11
+        let x = 896; //512; // approximate size for iphone 11
         let y = 1024 + 96;
         let state = demos::membranes_v1(x, y);  //demos::mega_pods_and_queens_turbo(x, y); 
           //demos::mega_pods_and_queens(x, y); // demos::plant_survival_resizable(x, y); //
@@ -127,7 +127,7 @@ impl Example for GameTest {
 
         let aspect_ratio =
             self.dims.x as f32 / self.dims.y as f32;
-        let pix_scale = 3.0;
+        let pix_scale = 2.0;
         let normalized_x = (2.0
             * (pix_scale * touch.position.x as f32 / self.dims.x as f32)
             - 1.0)
